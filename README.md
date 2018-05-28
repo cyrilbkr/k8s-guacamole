@@ -5,6 +5,8 @@ This configuration launch one deployment for Guacd on serviceport 4822 and one d
 
 You need a Mysql/Mariab server already up and runnng to host the Guacamole database. 
 
+Default login/password : guacadmin/guacadmin
+
 ## How to 
 
 ### Create & initialize database
