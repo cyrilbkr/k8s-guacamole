@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guacd
+spec:
+  selector:
+    matchLabels:
+      run: guacd
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: guacd
+    spec:
+      containers:
+      - name: guacd
+        image:  guacamole/guacd
+        ports:
+        - containerPort: 4822
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guacamole
+spec:
+  selector:
+    matchLabels:
+      run: guacamole
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: guacamole
+    spec:
+      containers:
+      - name: guacamole
+        image:  guacamole/guacamole
+        env:
+          - name: GUACD_HOSTNAME
+            value: "guacd"
+          - name: GUACD_PORT
+            value: "4822"
+          - name: MYSQL_HOSTNAME
+            value: "xxxxx"
+          - name: MYSQL_PORT
+            value: "3306"
+          - name: MYSQL_DATABASE
+            value: "xxxxx"
+          - name: MYSQL_USER
+            value: "xxxxx"
+          - name: MYSQL_PASSWORD
+            value: "xxxxx"
+        ports:
+        - containerPort: 8080
