@@ -1,5 +1,5 @@
 # k8s-guacamole
-Apache Guacamole for Kubernetes
+Apache Guacamole for Kubernetes based on official Guacamole Docker image. 
 
 This configuration launch one deployment for Guacd on serviceport 4822 and one deployment for Guacamole on serviceport 8080. 
 
