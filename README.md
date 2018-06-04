@@ -12,7 +12,13 @@ Default login/password : guacadmin/guacadmin
 ### Create & initialize database
 Create a new Mysql/Maria database with a login/password and source it with the sql script : 
 
-    source < boostrapdb.sql
+    mysql> create database xxxxx ; 
+
+    mysql> GRANT ALL PRIVILEGES ON xxxx.* TO 'xxxx'@'%' IDENTIFIED BY 'xxxxx';
+    
+    mysql> use xxxxx ; 
+
+    mysql> source < boostrapdb.sql
     
 ### Configure 
 
